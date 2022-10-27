@@ -3,20 +3,14 @@
  * your solution here
  *
  */
+//Practica de Pilas.
 class Stack {
   constructor(x) {
     this.data = []
     this.top = x
   }
 
-  push2(a) {//validate stack not full
-    if (this.isFull())
-      console.log('full stack')
-    else {
-      this.data.unshift(a)
-      // console.log(a,'added')
-    }
-  }
+
 
   push(o) {//validate stack not full
     // if (this.isFull())
@@ -37,12 +31,6 @@ class Stack {
     else
       this.data.pop(element)
   }
-  pop2(element) {//validate stack not empty
-    if (this.isEmpty())
-      console.log('empty stack')
-    else
-      console.log(this.data.shift(element), 'popped')
-  }
 
   isEmpty() {
     if (this.data.length === 0)//this.size()
@@ -61,11 +49,18 @@ class Stack {
   size() {
     return this.data.length
   }
+
+  search(k) { }
+  traverse() { }
+
+  toString() { }
   makeEmpty() {
     this.data = []
   }
 
+
   Llenar(x) {
+    let s = new Stack
     let n
     for (let i = 1; i <= x; i++) {
       n = (Math.floor(Math.random() * x) + 1)
@@ -118,20 +113,20 @@ console.log(" NUMBER 1e2 ")
 
 var s2 = new Stack(1e2)
 for (let i = 1; i <= 5; i++) {
-  console.time("T2")
+  console.time("T")
   console.log("Corrida No. " + i + "\n")
   s.Llenar(1e2)
   s.sort(1e2)
-  console.timeEnd("T"2)
+  console.timeEnd("T")
 }
 console.log("")
 console.log("NUMBER 1e3")
 
 var s3 = new Stack(1e3)
 for (i = 1; i <= 5; i++) {
-  console.time("T3")
+  console.time("T")
   console.log("Corrida No. " + i + "\n")
   s.Llenar(1e3)
   s.sort(1e3)
-  console.timeEnd("T3")
+  console.timeEnd("T")
 }

@@ -3,57 +3,75 @@
  * your solution here
  *
  */
-class Stack {
-  constructor() {
-    this.data = []
-    this.top = 5
+
+function Queue() {
+  this.dataStore = []
+  this.top = 5
+
+
+  this.enqueue = function(element) {
+    if (this.full())
+      console.log("Is full")
+    else
+      this.dataStore.push(element)
   }
 
+  this.dequeue = function() {
+    if (this.empty())
+      console.log("Is empty")
+    else
+      return this.dataStore.shift()
+  }
 
-  push(o) {//validate stack not full
-     if (this.isFull())
-     console.log('full stack')
-    else{
-    this.data.push(o)
-     console.log(o,'added')
+  this.front = function() {
+    return this.dataStore[0]
+  }
+
+  this.back = function() {
+    return this.dataStore[this.dataStore.length - 1]
+  }
+
+  this.toString = function() {
+    let retStr = ""
+    for (let i = 0; i < this.dataStore.length; ++i) {
+      retStr += this.dataStore[i] + "\n"
     }
+    return retStr
   }
 
-  peek() {
-    return this.data[this.data.length - 1]
-  }
-
-  pop(element) {//validate stack not empty
-    if (this.isEmpty())
-      console.log('empty stack')
-    else
-      this.data.pop(element)
-  }
-  pop2(element) {//validate stack not empty
-    if (this.isEmpty())
-      console.log('empty stack')
-    else
-      console.log(this.data.shift(element), 'popped')
-  }
-
-  isEmpty() {
-    if (this.data.length === 0)//this.size()
+  this.empty = function() {
+    if (this.dataStore.length == 0)
       return true
     else
       return false
+
   }
 
-  isFull() {
-    if (this.data.length === this.top)
+  this.full = function() {
+    if (this.dataStore.length == this.top)
       return true
     else
       return false
-  }
 
-  size() {
-    return this.data.length
-  }
-  makeEmpty() {
-    this.data = []
   }
 }
+
+//test
+let q = new Queue()
+q.enqueue("Meredith")
+q.enqueue("Cynthia")
+q.enqueue("Jennifer")
+q.enqueue("Sofia")
+q.enqueue("Kihara")
+
+console.log(q.toString())
+q.enqueue("Darcy")
+
+//empty
+q.dequeue()
+q.dequeue()
+q.dequeue()
+q.dequeue()
+q.dequeue()
+console.log(q.toString())
+q.dequeue()
