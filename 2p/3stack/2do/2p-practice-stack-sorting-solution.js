@@ -123,7 +123,7 @@ console.log("")
 console.log("NUMBER 1e3")
 
 var s3 = new Stack(1e3)
-for (i = 1; i <= 5; i++) {
+for (let i = 1; i <= 5; i++) {
   console.time("T")
   console.log("Corrida No. " + i + "\n")
   s.Llenar(1e3)
